@@ -1,0 +1,15 @@
+{
+  "name": "desafio-casas-bahia",
+  "version": "1.0.0",
+  "description": "Automação de uma compra no site das Casas Bahia",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Yonara Brito",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.8.1"
+  }
+}
