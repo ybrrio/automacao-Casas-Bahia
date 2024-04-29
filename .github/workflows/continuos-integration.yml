@@ -1,0 +1,16 @@
+name: Continuos Integration
+
+on: push
+
+jobs:
+  job-in-electron:
+    runs-on: unbuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4.1.4
+
+      - name: Install Dependencies
+        run: npm install 
+
+      - name: run E2E tests
+        run: npm cypress run
