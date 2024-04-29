@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  test_chrome:
+    name: Testes no Chrome
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Executar testes no Chrome
+      run: npx cypress run --browser chrome
+
+  test_edge:
+    name: Testes no Edge
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Executar testes no Edge
+      run: npx cypress run --browser edge
+
+  test_electron:
+    name: Testes no Electron
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Executar testes no Electron
+      run: npx cypress run --browser electron
