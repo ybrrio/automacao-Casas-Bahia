@@ -1,16 +1,50 @@
-name: Continuos Integration
+name: CI
 
-on: push
+on:
+  push:
+    branches:
+      - main
+      - master
 
 jobs:
-  job-in-electron:
-    runs-on: unbuntu-latest
+  test_chrome:
+    name: Testes no Chrome
+    runs-on: ubuntu-latest
+
     steps:
-      - name: Get code
-        uses: actions/checkout@v4.1.4
+    - name: Checkout do código
+      uses: actions/checkout@v2
 
-      - name: Install Dependencies
-        run: npm install 
+    - name: Instalar dependências
+      run: npm install
 
-      - name: run E2E tests
-        run: npm cypress run
+    - name: Executar testes no Chrome
+      run: npx cypress run --browser chrome
+
+  test_edge:
+    name: Testes no Edge
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Executar testes no Edge
+      run: npx cypress run --browser edge
+
+  test_electron:
+    name: Testes no Electron
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout do código
+      uses: actions/checkout@v2
+
+    - name: Instalar dependências
+      run: npm install
+
+    - name: Executar testes no Electron
+      run: npx cypress run --browser electron
